@@ -102,11 +102,44 @@
         return keyArr
       },
 
+      values() {
+        let valArr = []
+        for (let prop in element) {
+          if (element.hasOwnProperty(prop)) {
+            valArr.push(element[prop])
+          }
+        }
+        return valArr;
+      },
+
+      extend(...objs) {
+        let modObj = objs[0];
+        let objArr = objs.slice(1);
+        for (let obj of objArr) {
+          for (let prop in obj) {
+            modObj[prop] = obj[prop]
+          }
+        }
+        return modObj
+      },
+
+      pick
+
     };
     return u
   }
 
-
+  _.extend = function(...objs) {
+        let modObj = objs[0];
+        let objArr = objs.slice(1);
+        for (let obj of objArr) {
+          for (let prop in obj) {
+            modObj[prop] = obj[prop]
+          }
+        }
+        return modObj
+      }
+    
   _.range = function(...args) {
     let arr = [];
     let start, end;
